@@ -1,81 +1,129 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 
-        mc:Ignorable="d"
-        d:DesignWidth="200" d:DesignHeight="200"
+        Width="300" Height="525"
 
         x:Class="Calculator.MainWindow"
 
-        Title="Calculator">
+        Title="Calculator"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
 
     <Window.Styles>
-        <Style Selector="Button">
-            <Setter Property="Padding" Value="5" />
-
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-        </Style>
+        <StyleInclude Source="MainWindowStyles.axaml"/>
     </Window.Styles>
 
-    <DockPanel LastChildFill="True">
-        <TextBlock x:Name="Output"
-                   DockPanel.Dock="Top" />
+    <Grid RowDefinitions="100, Auto, *">
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      Grid.Row="0">
+            <TextBlock x:Name="Output"/>
+        </ScrollViewer>
+
         <TextBox x:Name="Input"
-                 DockPanel.Dock="Top" />
+                 Grid.Row="1" />
 
         <Grid RowDefinitions="*, *, *, *, *"
-              ColumnDefinitions="*, *, *, *">
+              ColumnDefinitions="*, *, *, *"
+              Grid.Row="2">
             <Button Grid.Row="0" Grid.Column="0"
-                    Content="AC" />
+                    Classes="equal"
+                    Content="AC"
+                    HotKey="Delete"
+                    Click="ButtonAllClear_OnClick"/>
             <Button Grid.Row="0" Grid.Column="1"
-                    Content="C" />
+                    Classes="equal"
+                    Content="C"
+                    HotKey="Escape"
+                    Click="ButtonClear_OnClick"/>
             <Button Grid.Row="0" Grid.Column="2"
-                    Content="" />
+                    Content=""
+                    IsEnabled="False"/>
             <Button Grid.Row="0" Grid.Column="3"
-                    Content="/" />
+                    Classes="arithmetic"
+                    Content="/"
+                    HotKey="Divide"
+                    Click="ButtonArithmetic_OnClick"/>
 
             <Button Grid.Row="1" Grid.Column="0"
-                    Content="7" />
+                    Classes="digit"
+                    Content="7"
+                    HotKey="D7"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="1" Grid.Column="1"
-                    Content="8" />
+                    Classes="digit"
+                    Content="8"
+                    HotKey="D8"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="1" Grid.Column="2"
-                    Content="9" />
+                    Classes="digit"
+                    Content="9"
+                    HotKey="D9"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="1" Grid.Column="3"
-                    Content="*" />
+                    Classes="arithmetic"
+                    Content="*"
+                    HotKey="Multiply"
+                    Click="ButtonArithmetic_OnClick"/>
 
             <Button Grid.Row="2" Grid.Column="0"
-                    Content="4" />
+                    Classes="digit"
+                    Content="4"
+                    HotKey="D4"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="2" Grid.Column="1"
-                    Content="5" />
+                    Classes="digit"
+                    Content="5"
+                    HotKey="D5"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="2" Grid.Column="2"
-                    Content="6" />
+                    Classes="digit"
+                    Content="6"
+                    HotKey="D6"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="2" Grid.Column="3"
-                    Content="-" />
+                    Classes="arithmetic"
+                    Content="-"
+                    HotKey="Subtract"
+                    Click="ButtonArithmetic_OnClick"/>
 
             <Button Grid.Row="3" Grid.Column="0"
-                    Content="1" />
+                    Classes="digit"
+                    Content="1"
+                    HotKey="D1"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="3" Grid.Column="1"
-                    Content="2" />
+                    Classes="digit"
+                    Content="2"
+                    HotKey="D2"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="3" Grid.Column="2"
-                    Content="3" />
+                    Classes="digit"
+                    Content="3"
+                    HotKey="D3"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="3" Grid.Column="3"
-                    Content="+" />
+                    Classes="arithmetic"
+                    Content="+"
+                    HotKey="Add"
+                    Click="ButtonArithmetic_OnClick"/>
 
             <Button Grid.Row="4" Grid.Column="0"
-                    Content="" />
+                    Content=""
+                    IsEnabled="False"/>
             <Button Grid.Row="4" Grid.Column="1"
-                    Content="0" />
+                    Classes="digit"
+                    Content="0"
+                    HotKey="D0"
+                    Click="ButtonDigit_OnClick"/>
             <Button Grid.Row="4" Grid.Column="2"
-                    Content="" />
+                    Content=""
+                    IsEnabled="False"/>
             <Button Grid.Row="4" Grid.Column="3"
-                    Content="=" />
+                    Classes="equal"
+                    Content="="
+                    HotKey="Enter"
+                    Click="ButtonEqual_OnClick"/>
         </Grid>
-    </DockPanel>
-
-
+    </Grid>
 </Window>
